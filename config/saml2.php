@@ -48,7 +48,7 @@ return [
     | Middle groups to use for the SAML routes
     |--------------------------------------------------------------------------
     |
-    | Note, Laravel 5.2 requires a group which includes StartSession
+    | Note, include the "web" group if your routes need session support.
     |
     */
 

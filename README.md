@@ -2,7 +2,7 @@
 >
 > This package is maintained by ZenTec. Bug fixes, feature updates, and security patches are accepted and published.
 
-## [Laravel 5.4+] SAML Service Provider
+## [Laravel 8+] SAML Service Provider
 
 [![Latest Stable Version][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -17,8 +17,8 @@ This package turns your application into Service Provider with the support of mu
 
 ## Requirements
 
--   Laravel 5.4+
--   PHP 7.0+
+-   Laravel 8+
+-   PHP 8.0+
 
 ## Getting Started
 
@@ -30,7 +30,7 @@ This package turns your application into Service Provider with the support of mu
 composer require ZenTecDev/laravel-saml2
 ```
 
-If you are using Laravel 5.5 and higher, the service provider will be automatically registered.
+If you are using Laravel 8 and higher, the service provider will be automatically registered.
 
 For older versions, you have to add the service provider and alias to your `config/app.php`:
 
