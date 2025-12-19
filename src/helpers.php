@@ -1,7 +1,6 @@
 <?php
 
-if (!function_exists('saml_url'))
-{
+if (!function_exists('saml_url')) {
     /**
      * Generate a URL to saml/{uuid}/login which redirects to a target URL.
      *
@@ -16,8 +15,8 @@ if (!function_exists('saml_url'))
     {
         $target = \Illuminate\Support\Facades\URL::to($path, $parameters, $secure);
 
-        if(!$uuid) {
-            if(!$uuid = saml_tenant_uuid()) {
+        if (!$uuid) {
+            if (!$uuid = saml_tenant_uuid()) {
                 return $target;
             }
         }
@@ -26,8 +25,7 @@ if (!function_exists('saml_url'))
     }
 }
 
-if (!function_exists('saml_route'))
-{
+if (!function_exists('saml_route')) {
     /**
      * Generate a URL to saml/{uuid}/login which redirects to a target route.
      *
@@ -41,8 +39,8 @@ if (!function_exists('saml_route'))
     {
         $target = \Illuminate\Support\Facades\URL::route($name, $parameters, true);
 
-        if(!$uuid) {
-            if(!$uuid = saml_tenant_uuid()) {
+        if (!$uuid) {
+            if (!$uuid = saml_tenant_uuid()) {
                 return $target;
             }
         }
@@ -51,8 +49,7 @@ if (!function_exists('saml_route'))
     }
 }
 
-if (!function_exists('saml_tenant_uuid'))
-{
+if (!function_exists('saml_tenant_uuid')) {
     /**
      * Get a resolved Tenant UUID based on current URL.
      *

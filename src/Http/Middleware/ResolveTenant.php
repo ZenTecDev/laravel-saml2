@@ -48,7 +48,7 @@ class ResolveTenant
      */
     public function handle($request, \Closure $next)
     {
-        if(!$tenant = $this->resolveTenant($request)) {
+        if (!$tenant = $this->resolveTenant($request)) {
             throw new NotFoundHttpException();
         }
 
@@ -78,7 +78,7 @@ class ResolveTenant
      */
     protected function resolveTenant($request)
     {
-        if(!$uuid = $request->route('uuid')) {
+        if (!$uuid = $request->route('uuid')) {
             if (config('saml2.debug')) {
                 Log::debug('[Saml2] Tenant UUID is not present in the URL so cannot be resolved', [
                     'url' => $request->fullUrl()
@@ -88,7 +88,7 @@ class ResolveTenant
             return null;
         }
 
-        if(!$tenant = $this->tenants->findByUUID($uuid)) {
+        if (!$tenant = $this->tenants->findByUUID($uuid)) {
             if (config('saml2.debug')) {
                 Log::debug('[Saml2] Tenant doesn\'t exist', [
                     'uuid' => $uuid
@@ -98,9 +98,9 @@ class ResolveTenant
             return null;
         }
 
-        if($tenant->trashed()) {
+        if ($tenant->trashed()) {
             if (config('saml2.debug')) {
-                Log::debug('[Saml2] Tenant #' . $tenant->id. ' resolved but marked as deleted', [
+                Log::debug('[Saml2] Tenant #' . $tenant->id . ' resolved but marked as deleted', [
                     'id' => $tenant->id,
                     'uuid' => $uuid,
                     'deleted_at' => $tenant->deleted_at->toDateTimeString()

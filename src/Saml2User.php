@@ -69,7 +69,7 @@ class Saml2User
     {
         return $this->auth->getAttribute($name);
     }
-    
+
     /**
      * The attributes retrieved from assertion processed this request.
      *
@@ -118,11 +118,11 @@ class Saml2User
      */
     public function parseUserAttribute($samlAttribute = null, $propertyName = null)
     {
-        if(empty($samlAttribute)) {
+        if (empty($samlAttribute)) {
             return null;
         }
 
-        if(empty($propertyName)) {
+        if (empty($propertyName)) {
             return $this->getAttribute($samlAttribute);
         }
 
@@ -138,7 +138,7 @@ class Saml2User
      */
     public function parseAttributes($attributes = [])
     {
-        foreach($attributes as $propertyName => $samlAttribute) {
+        foreach ($attributes as $propertyName => $samlAttribute) {
             $this->parseUserAttribute($samlAttribute, $propertyName);
         }
     }

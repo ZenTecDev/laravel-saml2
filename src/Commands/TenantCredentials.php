@@ -52,7 +52,7 @@ class TenantCredentials extends \Illuminate\Console\Command
      */
     public function handle()
     {
-        if(!$tenant = $this->tenants->findById($this->argument('id'))) {
+        if (!$tenant = $this->tenants->findById($this->argument('id'))) {
             $this->error('Cannot find a tenant #' . $this->argument('id'));
             return;
         }

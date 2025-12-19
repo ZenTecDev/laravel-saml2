@@ -54,23 +54,22 @@ class DeleteTenant extends \Illuminate\Console\Command
     {
         $tenants = $this->tenants->findByAnyIdentifier($this->argument('tenant'), false);
 
-        if($tenants->isEmpty()) {
+        if ($tenants->isEmpty()) {
             $this->error('Cannot find a matching tenant by "' . $this->argument('tenant') . '" identifier');
             return;
         }
 
         $this->renderTenants($tenants, 'Found tenant(s)');
 
-        if($tenants->count() > 1) {
+        if ($tenants->count() > 1) {
             $deletingId = $this->ask('We have found several tenants, which one would you like to delete? (enter its ID)');
-        }
-        else {
+        } else {
             $deletingId = $tenants->first()->id;
         }
 
         $tenant = $tenants->firstWhere('id', $deletingId);
 
-        if($this->option('safe')) {
+        if ($this->option('safe')) {
             $tenant->delete();
 
             $this->info('The tenant #' . $deletingId . ' safely deleted. To restore it, run:');
@@ -79,7 +78,7 @@ class DeleteTenant extends \Illuminate\Console\Command
             return;
         }
 
-        if(!$this->confirm('Would you like to forcely delete the tenant #' . $deletingId . '? It cannot be reverted.')) {
+        if (!$this->confirm('Would you like to forcely delete the tenant #' . $deletingId . '? It cannot be reverted.')) {
             return;
         }
 

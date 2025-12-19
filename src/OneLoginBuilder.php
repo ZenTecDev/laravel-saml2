@@ -98,7 +98,7 @@ class OneLoginBuilder
     protected function setConfigDefaultValues(array &$config)
     {
         foreach ($this->configDefaultValues() as $key => $default) {
-            if(!Arr::get($config, $key)) {
+            if (!Arr::get($config, $key)) {
                 Arr::set($config, $key, $default);
             }
         }
@@ -134,7 +134,7 @@ class OneLoginBuilder
             case 'unspecified':
                 return 'urn:oasis:names:tc:SAML:1.1:nameid-format:' . $format;
             default:
-                return 'urn:oasis:names:tc:SAML:2.0:nameid-format:'. $format;
+                return 'urn:oasis:names:tc:SAML:2.0:nameid-format:' . $format;
         }
     }
 }

@@ -60,7 +60,7 @@ class UpdateTenant extends \Illuminate\Console\Command
      */
     public function handle()
     {
-        if(!$tenant = $this->tenants->findById($this->argument('id'))) {
+        if (!$tenant = $this->tenants->findById($this->argument('id'))) {
             $this->error('Cannot find a tenant #' . $this->argument('id'));
             return;
         }
@@ -76,7 +76,7 @@ class UpdateTenant extends \Illuminate\Console\Command
             'metadata' => ConsoleHelper::stringToArray($this->option('metadata'))
         ]));
 
-        if(!$tenant->save()) {
+        if (!$tenant->save()) {
             $this->error('Tenant cannot be saved.');
             return;
         }

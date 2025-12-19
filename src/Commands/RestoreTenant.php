@@ -51,14 +51,14 @@ class RestoreTenant extends \Illuminate\Console\Command
      */
     public function handle()
     {
-        if(!$tenant = $this->tenants->findById($this->argument('id'))) {
+        if (!$tenant = $this->tenants->findById($this->argument('id'))) {
             $this->error('Cannot find a tenant #' . $this->argument('id'));
             return;
         }
 
         $this->renderTenants($tenant, 'Found a deleted tenant');
 
-        if(!$this->confirm('Would you like to restore it?')) {
+        if (!$this->confirm('Would you like to restore it?')) {
             return;
         }
 

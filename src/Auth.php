@@ -94,8 +94,7 @@ class Auth
         $isPassive = false,
         $stay = false,
         $setNameIdPolicy = true
-    )
-    {
+    ) {
         return $this->base->login($returnTo, $parameters, $forceAuthn, $isPassive, $stay, $setNameIdPolicy);
     }
 
@@ -121,8 +120,7 @@ class Auth
         $nameIdFormat = null,
         $stay = false,
         $nameIdNameQualifier = null
-    )
-    {
+    ) {
         $auth = $this->base;
 
         return $auth->logout($returnTo, [], $nameId, $sessionIndex, $stay, $nameIdFormat, $nameIdNameQualifier);

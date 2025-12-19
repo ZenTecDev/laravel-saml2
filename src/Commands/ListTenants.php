@@ -53,7 +53,7 @@ class ListTenants extends \Illuminate\Console\Command
     {
         $tenants = $this->tenants->all();
 
-        if($tenants->isEmpty()) {
+        if ($tenants->isEmpty()) {
             $this->info('No tenants found');
             return;
         }

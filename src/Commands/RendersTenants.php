@@ -35,12 +35,12 @@ trait RendersTenants
                 $columns[] = [$column, $value ?: '(empty)'];
             }
 
-            if($tenants->last()->id !== $tenant->id) {
+            if ($tenants->last()->id !== $tenant->id) {
                 $columns[] = new \Symfony\Component\Console\Helper\TableSeparator();
             }
         }
 
-        if($title) {
+        if ($title) {
             $this->getOutput()->title($title);
         }
 

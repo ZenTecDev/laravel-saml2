@@ -37,7 +37,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     protected function bootRoutes()
     {
-        if($this->app['config']['saml2.useRoutes'] == true) {
+        if ($this->app['config']['saml2.useRoutes'] == true) {
             include __DIR__ . '/Http/routes.php';
         }
     }

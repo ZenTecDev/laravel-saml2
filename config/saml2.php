@@ -170,8 +170,8 @@ return [
         |
         */
 
-        'x509cert' => env('SAML2_SP_CERT_x509',''),
-        'privateKey' => env('SAML2_SP_CERT_PRIVATEKEY',''),
+        'x509cert' => env('SAML2_SP_CERT_x509', ''),
+        'privateKey' => env('SAML2_SP_CERT_PRIVATEKEY', ''),
 
         /*
         |--------------------------------------------------------------------------
@@ -182,7 +182,7 @@ return [
         |
         */
 
-        'entityId' => env('SAML2_SP_ENTITYID',''),
+        'entityId' => env('SAML2_SP_ENTITYID', ''),
 
         /*
         |--------------------------------------------------------------------------

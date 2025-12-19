@@ -17,8 +17,8 @@ This package turns your application into Service Provider with the support of mu
 
 ## Requirements
 
-- Laravel 5.4+
-- PHP 7.0+
+-   Laravel 5.4+
+-   PHP 7.0+
 
 ## Getting Started
 
@@ -70,34 +70,34 @@ When request comes to an application, the middleware parses UUID and resolves th
 
 You can easily manage tenants using the following console commands:
 
-- `artisan saml2:create-tenant`
-- `artisan saml2:update-tenant`
-- `artisan saml2:delete-tenant`
-- `artisan saml2:restore-tenant`
-- `artisan saml2:list-tenants`
-- `artisan saml2:tenant-credentials`
+-   `artisan saml2:create-tenant`
+-   `artisan saml2:update-tenant`
+-   `artisan saml2:delete-tenant`
+-   `artisan saml2:restore-tenant`
+-   `artisan saml2:list-tenants`
+-   `artisan saml2:tenant-credentials`
 
 > To learn their options, run a command with `-h` parameter.
 
 Each Tenant has the following attributes:
 
-- **UUID** — a unique identifier that allows to resolve a tenannt and configure SP correspondingly
-- **Key** — a custom key to use for application needs
-- **Entity ID** — [Identity Provider Entity ID](https://spaces.at.internet2.edu/display/InCFederation/Entity+IDs)
-- **Login URL** — Identity Provider Single Sign On URL
-- **Logout URL** — Identity Provider Logout URL
-- **x509 certificate** — The certificate provided by Identity Provider in **base64** format
-- **Metadata** — Custom parameters for your application needs
+-   **UUID** — a unique identifier that allows to resolve a tenannt and configure SP correspondingly
+-   **Key** — a custom key to use for application needs
+-   **Entity ID** — [Identity Provider Entity ID](https://spaces.at.internet2.edu/display/InCFederation/Entity+IDs)
+-   **Login URL** — Identity Provider Single Sign On URL
+-   **Logout URL** — Identity Provider Logout URL
+-   **x509 certificate** — The certificate provided by Identity Provider in **base64** format
+-   **Metadata** — Custom parameters for your application needs
 
 #### Default routes
 
 The following routes are registered by default:
 
-- `GET saml2/{uuid}/login`
-- `GET saml2/{uuid}/logout`
-- `GET saml2/{uuid}/metadata`
-- `POST saml2/{uuid}/acs`
-- `POST saml2/{uuid}/sls`
+-   `GET saml2/{uuid}/login`
+-   `GET saml2/{uuid}/logout`
+-   `GET saml2/{uuid}/metadata`
+-   `POST saml2/{uuid}/acs`
+-   `POST saml2/{uuid}/sls`
 
 You may disable them by setting `saml2.useRoutes` to `false`.
 
@@ -167,8 +167,8 @@ protected $middlewareGroups = [
 
 There are two ways the user can logout:
 
-- By logging out in your app. In this case you SHOULD notify the IdP first so it'll close the global session.
-- By logging out of the global SSO Session. In this case the IdP will notify you on `/saml2/{uuid}/slo` endpoint (already provided).
+-   By logging out in your app. In this case you SHOULD notify the IdP first so it'll close the global session.
+-   By logging out of the global SSO Session. In this case the IdP will notify you on `/saml2/{uuid}/slo` endpoint (already provided).
 
 For the first case, call `Saml2Auth::logout();` or redirect the user to the route `saml.logout` which does just that.
 Do not close the session immediately as you need to receive a response confirmation from the IdP (redirection).
@@ -216,10 +216,10 @@ At this point, we assume you have an application on Azure AD that supports Singl
 
 You need to retrieve the following parameters:
 
-- Login URL
-- Azure AD Identifier
-- Logout URL
-- Certificate (Base64)
+-   Login URL
+-   Azure AD Identifier
+-   Logout URL
+-   Certificate (Base64)
 
 ##### Step 2. Create a Tenant
 
@@ -288,9 +288,9 @@ Please report security vulnerabilities using GitHub Security Advisories for this
 
 ## Credits
 
-- [aacotroneo][link-original-author]
-- [ComputerCraftr][link-author]
-- [All Contributors][link-contributors]
+-   [aacotroneo][link-original-author]
+-   [ComputerCraftr][link-author]
+-   [All Contributors][link-contributors]
 
 ## License
 

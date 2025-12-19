@@ -2,7 +2,13 @@
     "name": "zentecdev/laravel-saml2",
     "type": "library",
     "description": "SAML2 Service Provider integration to your Laravel 5.4+ application, based on OneLogin toolkit",
-    "keywords": ["laravel", "saml", "saml2", "onelogin", "sso"],
+    "keywords": [
+        "laravel",
+        "saml",
+        "saml2",
+        "onelogin",
+        "sso"
+    ],
     "homepage": "https://github.com/ZenTecDev/laravel-saml2",
     "license": "MIT",
     "authors": [

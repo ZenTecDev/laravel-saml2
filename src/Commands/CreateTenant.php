@@ -84,11 +84,11 @@ class CreateTenant extends \Illuminate\Console\Command
         $key = $this->option('key');
         $metadata = ConsoleHelper::stringToArray($this->option('metadata'));
 
-        if($key && ($tenant = $this->tenants->findByKey($key))) {
+        if ($key && ($tenant = $this->tenants->findByKey($key))) {
             $this->renderTenants($tenant, 'Already found tenant(s) using this key');
             $this->error(
                 'Cannot create a tenant because the key is already being associated with other tenants.'
-                    . PHP_EOL . 'Firstly, delete tenant(s) or try to create with another with another key.'
+                . PHP_EOL . 'Firstly, delete tenant(s) or try to create with another with another key.'
             );
 
             return;
@@ -107,7 +107,7 @@ class CreateTenant extends \Illuminate\Console\Command
             'metadata' => $metadata,
         ]);
 
-        if(!$tenant->save()) {
+        if (!$tenant->save()) {
             $this->error('Tenant cannot be saved.');
             return;
         }
