@@ -1,10 +1,8 @@
-> ## ⚠️ THIS REPOSITORY IS DEPRECATED ⚠️
+> ## Actively maintained by ZenTec (2025)
 >
-> **This package is no longer maintained by 24Slides.**
-> It will not receive any further updates, bug fixes, or security patches. We strongly recommend using an alternative, actively maintained SAML package for Laravel.
-> You are free to fork this repository and continue its development independently.
+> This package is maintained by ZenTec. Bug fixes, feature updates, and security patches are accepted and published.
 
-## [Laravel 5.4+] SAML Service Provider 
+## [Laravel 5.4+] SAML Service Provider
 
 [![Latest Stable Version][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -13,7 +11,7 @@
 [![Code Coverage][ico-code-coverage]][link-code-coverage]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-An integration to add SSO to your service via SAML2 protocol based on [OneLogin](https://github.com/onelogin/php-saml) toolkit. 
+An integration to add SSO to your service via SAML2 protocol based on [OneLogin](https://github.com/onelogin/php-saml) toolkit.
 
 This package turns your application into Service Provider with the support of multiple Identity Providers.
 
@@ -29,7 +27,7 @@ This package turns your application into Service Provider with the support of mu
 ##### Step 1. Install dependency
 
 ```
-composer require 24slides/laravel-saml2
+composer require ZenTecDev/laravel-saml2
 ```
 
 If you are using Laravel 5.5 and higher, the service provider will be automatically registered.
@@ -114,18 +112,18 @@ The simplest way to handle SAML authentication is to add listeners on `Slides\Sa
 ```php
 Event::listen(\Slides\Saml2\Events\SignedIn::class, function (\Slides\Saml2\Events\SignedIn $event) {
     $messageId = $event->getAuth()->getLastMessageId();
-    
+
     // your own code preventing reuse of a $messageId to stop replay attacks
     $samlUser = $event->getSaml2User();
-    
+
     $userData = [
         'id' => $samlUser->getUserId(),
         'attributes' => $samlUser->getAttributes(),
         'assertion' => $samlUser->getRawSamlAssertion()
     ];
-    
+
     $user = // find user by ID or attribute
-    
+
     // Login a user.
     Auth::login($user);
 });
@@ -168,14 +166,15 @@ protected $middlewareGroups = [
 ### Logging out
 
 There are two ways the user can logout:
+
 - By logging out in your app. In this case you SHOULD notify the IdP first so it'll close the global session.
 - By logging out of the global SSO Session. In this case the IdP will notify you on `/saml2/{uuid}/slo` endpoint (already provided).
 
-For the first case, call `Saml2Auth::logout();` or redirect the user to the route `saml.logout` which does just that. 
-Do not close the session immediately as you need to receive a response confirmation from the IdP (redirection). 
+For the first case, call `Saml2Auth::logout();` or redirect the user to the route `saml.logout` which does just that.
+Do not close the session immediately as you need to receive a response confirmation from the IdP (redirection).
 That response will be handled by the library at `/saml2/sls` and will fire an event for you to complete the operation.
 
-For the second case you will only receive the event. Both cases receive the same event. 
+For the second case you will only receive the event. Both cases receive the same event.
 
 Note that for the second case, you may have to manually save your session to make the logout stick (as the session is saved by middleware, but the OneLogin library will redirect back to your IdP before that happens):
 
@@ -198,11 +197,12 @@ To generate a link, you need to call one of functions and pass UUID of the tenan
 > To retrieve UUID based on user, you should implement logic that links your internal user to a tenant.
 
 Then, it generates a link like this:
+
 ```
 https://yourdomain/saml/63fffdd1-f416-4bed-b3db-967b6a56896b/login?returnTo=https://yourdomain.com/your/actual/link
 ```
 
-Basically, when user clicks on a link, it initiates SSO login process and redirects it back to your needed URL. 
+Basically, when user clicks on a link, it initiates SSO login process and redirects it back to your needed URL.
 
 ## Examples
 
@@ -258,13 +258,13 @@ Using the output below, assign parameters to your IdP on application Single-Sign
 
 ##### Step 4. Make sure your application accessible by Azure AD
 
-Test your application directly from Azure AD and make sure it's accessible worldwide. 
+Test your application directly from Azure AD and make sure it's accessible worldwide.
 
 ###### Running locally
 
 If you want to test it locally, you may use [ngrok](https://ngrok.com/).
 
-In case if you have a problem with URL creation in your application, you can overwrite host header in your nginx host 
+In case if you have a problem with URL creation in your application, you can overwrite host header in your nginx host
 config file by adding the following parameters:
 
 ```
@@ -272,7 +272,7 @@ fastcgi_param HTTP_HOST your.ngrok.io;
 fastcgi_param HTTPS on;
 ```
 
-> Replace `your.ngrok.io` with your actual ngrok URL 
+> Replace `your.ngrok.io` with your actual ngrok URL
 
 ## Tests
 
@@ -284,31 +284,30 @@ vendor/bin/phpunit
 
 ## Security
 
-As this project is **no longer maintained**, security vulnerabilities will not be fixed by 24Slides. The email address previously listed for reporting is no longer monitored for this project.
+Please report security vulnerabilities using GitHub Security Advisories for this repository. ZenTec reviews and addresses security reports on an ongoing basis.
 
 ## Credits
 
 - [aacotroneo][link-original-author]
-- [brezzhnev][link-author]
+- [ComputerCraftr][link-author]
 - [All Contributors][link-contributors]
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://poser.pugx.org/24slides/laravel-saml2/v/stable?format=flat-square
+[ico-version]: https://poser.pugx.org/ZenTecDev/laravel-saml2/v/stable?format=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/24Slides/laravel-saml2.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/24slides/laravel-saml2.svg?style=flat-square
-[ico-code-coverage]: https://img.shields.io/scrutinizer/coverage/g/24slides/laravel-saml2.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/24slides/laravel-saml2.svg?style=flat-square
-
-[link-packagist]: https://packagist.org/packages/24slides/laravel-saml2
-[link-travis]: https://travis-ci.org/24Slides/laravel-saml2
-[link-scrutinizer]: https://scrutinizer-ci.com/g/24slides/laravel-saml2/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/24slides/laravel-saml2
-[link-code-coverage]: https://scrutinizer-ci.com/g/24Slides/laravel-saml2
-[link-downloads]: https://packagist.org/packages/24slides/laravel-saml2
+[ico-travis]: https://img.shields.io/travis/ZenTecDev/laravel-saml2.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/ZenTecDev/laravel-saml2.svg?style=flat-square
+[ico-code-coverage]: https://img.shields.io/scrutinizer/coverage/g/ZenTecDev/laravel-saml2.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/ZenTecDev/laravel-saml2.svg?style=flat-square
+[link-packagist]: https://packagist.org/packages/ZenTecDev/laravel-saml2
+[link-travis]: https://travis-ci.org/ZenTecDev/laravel-saml2
+[link-scrutinizer]: https://scrutinizer-ci.com/g/ZenTecDev/laravel-saml2/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/ZenTecDev/laravel-saml2
+[link-code-coverage]: https://scrutinizer-ci.com/g/ZenTecDev/laravel-saml2
+[link-downloads]: https://packagist.org/packages/ZenTecDev/laravel-saml2
 [link-original-author]: https://github.com/aacotroneo
-[link-author]: https://github.com/brezzhnev
+[link-author]: https://github.com/ComputerCraftr
 [link-contributors]: ../../contributors
