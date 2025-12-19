@@ -7,6 +7,7 @@
 [![Latest Stable Version][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-ci]][link-ci]
+[![Code Coverage][ico-code-coverage]][link-code-coverage]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 An integration to add SSO to your service via SAML2 protocol based on [OneLogin](https://github.com/onelogin/php-saml) toolkit.
@@ -297,9 +298,11 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-version]: https://poser.pugx.org/ZenTecDev/laravel-saml2/v/stable?format=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-ci]: https://github.com/ZenTecDev/laravel-saml2/actions/workflows/ci.yml/badge.svg
+[ico-code-coverage]: https://codecov.io/gh/ZenTecDev/laravel-saml2/graph/badge.svg
 [ico-downloads]: https://img.shields.io/packagist/dt/ZenTecDev/laravel-saml2.svg?style=flat-square
 [link-packagist]: https://packagist.org/packages/ZenTecDev/laravel-saml2
 [link-ci]: https://github.com/ZenTecDev/laravel-saml2/actions/workflows/ci.yml
+[link-code-coverage]: https://codecov.io/gh/ZenTecDev/laravel-saml2
 [link-downloads]: https://packagist.org/packages/ZenTecDev/laravel-saml2
 [link-original-author]: https://github.com/aacotroneo
 [link-author]: https://github.com/ComputerCraftr

@@ -14,18 +14,15 @@
             <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+    <coverage processUncoveredFiles="true">
+        <include>
             <directory suffix=".php">src</directory>
-            <exclude>
-                <directory>src/Http</directory>
-                <directory>src/Commands</directory>
-                <directory>src/Concerns</directory>
-                <directory>src/Facades</directory>
-            </exclude>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-clover" target="tests/_reports" />
-    </logging>
+        </include>
+        <exclude>
+            <directory>src/Http</directory>
+            <directory>src/Commands</directory>
+            <directory>src/Concerns</directory>
+            <directory>src/Facades</directory>
+        </exclude>
+    </coverage>
 </phpunit>
