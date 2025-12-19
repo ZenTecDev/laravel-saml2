@@ -6,9 +6,7 @@
 
 [![Latest Stable Version][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Quality Score][ico-code-quality]][link-code-quality]
-[![Code Coverage][ico-code-coverage]][link-code-coverage]
+[![Build Status][ico-ci]][link-ci]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 An integration to add SSO to your service via SAML2 protocol based on [OneLogin](https://github.com/onelogin/php-saml) toolkit.
@@ -298,15 +296,10 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [ico-version]: https://poser.pugx.org/ZenTecDev/laravel-saml2/v/stable?format=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/ZenTecDev/laravel-saml2.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/ZenTecDev/laravel-saml2.svg?style=flat-square
-[ico-code-coverage]: https://img.shields.io/scrutinizer/coverage/g/ZenTecDev/laravel-saml2.svg?style=flat-square
+[ico-ci]: https://github.com/ZenTecDev/laravel-saml2/actions/workflows/ci.yml/badge.svg
 [ico-downloads]: https://img.shields.io/packagist/dt/ZenTecDev/laravel-saml2.svg?style=flat-square
 [link-packagist]: https://packagist.org/packages/ZenTecDev/laravel-saml2
-[link-travis]: https://travis-ci.org/ZenTecDev/laravel-saml2
-[link-scrutinizer]: https://scrutinizer-ci.com/g/ZenTecDev/laravel-saml2/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/ZenTecDev/laravel-saml2
-[link-code-coverage]: https://scrutinizer-ci.com/g/ZenTecDev/laravel-saml2
+[link-ci]: https://github.com/ZenTecDev/laravel-saml2/actions/workflows/ci.yml
 [link-downloads]: https://packagist.org/packages/ZenTecDev/laravel-saml2
 [link-original-author]: https://github.com/aacotroneo
 [link-author]: https://github.com/ComputerCraftr
